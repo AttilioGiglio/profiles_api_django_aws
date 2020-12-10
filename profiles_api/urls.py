@@ -6,6 +6,8 @@ from profiles_api import views
 router = DefaultRouter()
 # register new viewset on route hello-viewset
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
+# don't need to assign a base_name because django_framework does it for default, when the view class has a queryset
+router.register('profile', views.UserProfileViewSet)
 
 urlpatterns = [
     # when the urls match from profiles_project, is added to api/ the hello-view/ 

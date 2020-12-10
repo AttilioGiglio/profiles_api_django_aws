@@ -13,11 +13,13 @@ Vagrant.configure("2") do |config|
  # Every Vagrant development environment requires a box. You can search for
  # boxes at https://vagrantcloud.com/search.
  config.vm.box = "ubuntu/bionic64"
+ # Pinned an specific version of virtual environment
  config.vm.box_version = "~> 20200304.0.0"
 
- # configuration of port 8000  
+ # configuration of port 8000, to our local machine (host) and virtual machine (guest)  
  config.vm.network "forwarded_port", guest: 8000, host: 8000
  
+ # setup pre-made commands
  config.vm.provision "shell", inline: <<-SHELL
    systemctl disable apt-daily.service
    systemctl disable apt-daily.timer
@@ -33,4 +35,8 @@ Vagrant.configure("2") do |config|
      echo "alias python='python3'" >> /home/vagrant/.bash_aliases
    fi
  SHELL
+ 
+ # Disable SSL issue verification, not best practice probably 
+ config.vm.box_download_insecure=true
+
 end

@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'profiles_api',
     'rest_framework',
     'rest_framework.authtoken',
+    'profiles_api',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Defines to django system where is the auth user config model is.
+AUTH_USER_MODEL = 'profiles_api.UserProfile'

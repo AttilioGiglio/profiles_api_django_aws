@@ -13,6 +13,7 @@ urlpatterns = [
     # when the urls match from profiles_project, is added to api/ the hello-view/ 
     # and setup the logic from the endpoint on the view HelloApiView
     path('hello-view/', views.HelloApiView.as_view()),
+    path('login/', views.UserLoginApiView.as_view()),
     # 2 arguments: '' - all url base on urls.py file , include... - url list routes
     path('', include(router.urls))
 ]

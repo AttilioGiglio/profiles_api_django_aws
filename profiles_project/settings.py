@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w_l1iq9yvby5@*jc&v=hc4-adr2p(ygzl85rojl%h4palvpd(j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
 ALLOWED_HOSTS = []
 
@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 
 # Defines to django system where is the auth user config model is.
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
+# $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput from setup.sh 
+STATIC_ROOT = 'static/'
